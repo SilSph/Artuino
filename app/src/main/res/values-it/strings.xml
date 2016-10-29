@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="go_back">Indietro</string>
+    <string name="go_resize">Ritaglia</string>
+
+    <string name="send_arduino">Invia</string>
+
+</resources>

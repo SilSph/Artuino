@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name" translatable="false">Artuino</string>
+
+    <string name="camera" translatable="false">Camera</string>
+    <string name="gallery" translatable="false">Gallery</string>
+    <string name="facebook" translatable="false">Facebook</string>
+
+    <string name="go_back">Back</string>
+    <string name="go_resize">Resize</string>
+
+    <string name="send_arduino">Send</string>
+
+</resources>
