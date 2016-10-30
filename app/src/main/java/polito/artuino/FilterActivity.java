@@ -20,8 +20,6 @@ public class FilterActivity extends AppCompatActivity {
         System.loadLibrary("opencv_java3");
     }
 
-    private boolean sourceAlreadyRead = false;
-
     private ImageView imageView1;
 
     private Uri uriImageCropped;
@@ -40,22 +38,6 @@ public class FilterActivity extends AppCompatActivity {
         handleFilter();
     }
 
-    private void handleFilter() {
-
-        try {
-            stream = getContentResolver().openInputStream(uriImageCropped);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        if(!sourceAlreadyRead) {
-            handleBitmap(stream);
-            sourceAlreadyRead = true;
-        }
-
-        adaptiveThresholdMethod();
-    }
-
     private void setImageView() {
 
         Bundle extras = getIntent().getExtras();
@@ -68,10 +50,22 @@ public class FilterActivity extends AppCompatActivity {
         } catch(Exception e) {
             e.printStackTrace();
         }
-
     }
 
-    private void handleBitmap(InputStream stream) {
+    private void handleFilter() {
+
+        try {
+            stream = getContentResolver().openInputStream(uriImageCropped);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        handleBitmap();
+
+        adaptiveThresholdMethod();
+    }
+
+    private void handleBitmap() {
 
         /* Creo bitmap a partire dall'URI */
         BitmapFactory.Options bmpImageInputFactoryOptions = new BitmapFactory.Options();
